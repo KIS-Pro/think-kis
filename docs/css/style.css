@@ -327,6 +327,15 @@ h2 {
   margin-top: 1rem;
 }
 
+.contact-note a {
+  color: var(--color-main);
+  text-decoration: none;
+}
+
+.contact-note a:hover {
+  text-decoration: underline;
+}
+
 /* ========================================
    フェードイン アニメーション
    ======================================== */
