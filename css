@@ -1,0 +1,187 @@
+/* ========================================
+   KIS - Common Styles
+   ======================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fafafa;
+  color: #111;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 12vh 24px;
+}
+
+/* Typography */
+h1 {
+  font-size: 1.3em;
+  font-weight: 400;
+  margin-bottom: 2em;
+  color: #333;
+}
+
+h2 {
+  font-size: 0.95em;
+  font-weight: 400;
+  margin-top: 4em;
+  margin-bottom: 1.5em;
+  color: #555;
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+.lead {
+  color: #333;
+}
+
+.name {
+  margin-top: 5em;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.note {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 1em;
+}
+
+/* Navigation */
+.nav {
+  margin-top: 6em;
+  font-size: 0.85em;
+}
+
+.nav a {
+  color: #555;
+  text-decoration: none;
+  margin-right: 2em;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #111;
+}
+
+/* KIS Mode Items */
+.mode-item {
+  margin-bottom: 1.8em;
+}
+
+.mode-name {
+  color: #333;
+}
+
+.mode-desc {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Example Boxes */
+.example-box {
+  margin-bottom: 2.5em;
+  padding-left: 1em;
+  border-left: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.example-box:hover {
+  border-color: #999;
+}
+
+.example-title {
+  color: #333;
+  font-size: 0.95em;
+  margin-bottom: 0.5em;
+}
+
+.example-text {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+/* Fade In on Load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Staggered fade for paragraphs (optional) */
+.container p,
+.container h1,
+.container h2,
+.container .name,
+.container .mode-item,
+.container .example-box {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.container > *:nth-child(1) { animation-delay: 0.1s; }
+.container > *:nth-child(2) { animation-delay: 0.15s; }
+.container > *:nth-child(3) { animation-delay: 0.2s; }
+.container > *:nth-child(4) { animation-delay: 0.25s; }
+.container > *:nth-child(5) { animation-delay: 0.3s; }
+.container > *:nth-child(6) { animation-delay: 0.35s; }
+.container > *:nth-child(7) { animation-delay: 0.4s; }
+.container > *:nth-child(8) { animation-delay: 0.45s; }
+.container > *:nth-child(9) { animation-delay: 0.5s; }
+.container > *:nth-child(10) { animation-delay: 0.55s; }
+.container > *:nth-child(11) { animation-delay: 0.6s; }
+.container > *:nth-child(12) { animation-delay: 0.65s; }
+.container > *:nth-child(13) { animation-delay: 0.7s; }
+.container > *:nth-child(14) { animation-delay: 0.75s; }
+.container > *:nth-child(15) { animation-delay: 0.8s; }
+
+/* Nav always visible */
+.container .nav {
+  opacity: 1;
+  animation: fadeIn 0.6s ease-out 0.9s forwards;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8vh 20px;
+  }
+  
+  h1 {
+    font-size: 1.2em;
+  }
+}
