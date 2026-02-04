@@ -31,21 +31,10 @@
   /* その他 */
   --color-border: #D0C9BC;
   --color-white: #FFFFFF;
-  
-  /* フォント */
-  --font-main: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-  --font-accent: "Noto Serif JP", "Hiragino Mincho ProN", serif;
-  
-  /* スペーシング */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
 }
 
 /* ========================================
-   ベースリセット
+   ベース
    ======================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -59,299 +48,237 @@ html {
 }
 
 body {
-  font-family: var(--font-main);
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.8;
+  line-height: 2;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* ========================================
+   コンテナ
+   ======================================== */
+.container {
+  max-width: 640px;
+  width: 100%;
+  padding: 3rem 2rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
+  position: relative;
+}
+
+/* 上部の装飾ライン */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-main) 0%,
+    var(--color-sand) 100%
+  );
 }
 
 /* ========================================
    タイポグラフィ
    ======================================== */
-h1, h2, h3 {
-  font-family: var(--font-accent);
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--color-main);
+p {
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.02em;
 }
 
 h1 {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
   font-size: 2rem;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--color-main);
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* h1の下に砂色のアクセント */
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-sand);
 }
 
 h2 {
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-md);
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-main);
+  letter-spacing: 0.1em;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-sand);
 }
 
-h3 {
-  font-size: 1.2rem;
+/* ========================================
+   リード文
+   ======================================== */
+.lead {
+  font-size: 1.05rem;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
 }
 
-p {
-  margin-bottom: var(--space-sm);
+/* ========================================
+   名前（署名）
+   ======================================== */
+.name {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
 }
 
-a {
+/* ========================================
+   ナビゲーション
+   ======================================== */
+.nav {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
   color: var(--color-main);
   text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-main);
   transition: all 0.3s ease;
 }
 
-a:hover {
-  color: var(--color-main-light);
-}
-
-/* ========================================
-   ヘッダー・ナビゲーション
-   ======================================== */
-header {
+.nav a:hover {
   background-color: var(--color-main);
-  padding: var(--space-sm) var(--space-md);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-family: var(--font-accent);
-  font-size: 1.3rem;
-  color: var(--color-sand-light);
-  letter-spacing: 0.15em;
-}
-
-.logo:hover {
   color: var(--color-white);
 }
 
-.nav-links {
-  display: flex;
-  gap: var(--space-md);
-  list-style: none;
+/* ========================================
+   モード一覧（kis.html）
+   ======================================== */
+.mode-item {
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  background-color: var(--color-bg);
+  border-left: 3px solid var(--color-sand);
+  transition: all 0.3s ease;
 }
 
-.nav-links a {
-  color: var(--color-sand-light);
-  font-size: 0.9rem;
+.mode-item:hover {
+  background-color: var(--color-bg-alt);
+  border-left-color: var(--color-main);
+}
+
+.mode-name {
+  font-weight: 600;
+  color: var(--color-main);
+  font-size: 0.95rem;
   letter-spacing: 0.05em;
-  padding: var(--space-xs) 0;
-  position: relative;
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: var(--color-sand);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--color-white);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
+.mode-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  display: inline-block;
+  margin-top: 0.3rem;
 }
 
 /* ========================================
-   ヒーローセクション
+   使用例ボックス（kis.html）
    ======================================== */
-.hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-main-dark) 0%,
-    var(--color-main) 50%,
-    var(--color-main-light) 100%
-  );
-  color: var(--color-sand-light);
-  padding: var(--space-xl) var(--space-md);
-  text-align: center;
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h1 {
-  color: var(--color-white);
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.hero-tagline {
-  font-family: var(--font-accent);
-  font-size: 1.2rem;
-  color: var(--color-sand);
-  letter-spacing: 0.2em;
-  margin-bottom: var(--space-lg);
-}
-
-.hero-description {
-  max-width: 600px;
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--color-sand-light);
-}
-
-/* ========================================
-   メインコンテンツ
-   ======================================== */
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--space-xl) var(--space-md);
-}
-
-section {
-  margin-bottom: var(--space-xl);
-}
-
-/* セクション区切り：枯山水の波紋をイメージ */
-section::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-sand-dark),
-    transparent
-  );
-  margin: var(--space-lg) auto 0;
-}
-
-section:last-of-type::after {
-  display: none;
-}
-
-/* ========================================
-   カードスタイル
-   ======================================== */
-.card {
+.example-box {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 4px;
-  padding: var(--space-md);
-  margin-bottom: var(--space-md);
-  box-shadow: 0 2px 8px rgba(44, 74, 82, 0.05);
   transition: all 0.3s ease;
 }
 
-.card:hover {
-  box-shadow: 0 4px 16px rgba(44, 74, 82, 0.1);
-  transform: translateY(-2px);
+.example-box:hover {
+  box-shadow: 0 4px 12px rgba(44, 74, 82, 0.08);
 }
 
-.card h3 {
-  border-left: 3px solid var(--color-sand);
-  padding-left: var(--space-sm);
-  margin-bottom: var(--space-sm);
-}
-
-/* ========================================
-   引用・強調
-   ======================================== */
-blockquote {
-  background-color: var(--color-bg-alt);
-  border-left: 3px solid var(--color-main);
-  padding: var(--space-md);
-  margin: var(--space-md) 0;
-  font-family: var(--font-accent);
-  font-style: italic;
-  color: var(--color-text-light);
-}
-
-.highlight {
-  background: linear-gradient(
-    transparent 60%,
-    var(--color-sand-light) 60%
-  );
-  padding: 0 0.2em;
-}
-
-/* ========================================
-   ボタン
-   ======================================== */
-.btn {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--color-main);
-  border-radius: 2px;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--color-main);
-  color: var(--color-white);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-main-light);
-  color: var(--color-white);
-}
-
-.btn-secondary {
-  background-color: transparent;
+.example-title {
+  font-weight: 600;
   color: var(--color-main);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--color-sand);
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-main);
-  color: var(--color-white);
+.example-text {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.9;
 }
 
 /* ========================================
-   SNS・連絡先セクション
+   注釈
+   ======================================== */
+.note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-border);
+}
+
+/* ========================================
+   SNS・連絡先セクション（kis.html用）
    ======================================== */
 .contact-section {
+  margin-top: 3rem;
+  padding: 2rem;
   background-color: var(--color-bg-alt);
-  padding: var(--space-lg);
-  border-radius: 4px;
   text-align: center;
-  margin-top: var(--space-xl);
 }
 
 .contact-section h2 {
-  font-size: 1.2rem;
-  margin-bottom: var(--space-md);
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
+  margin-top: 0;
 }
 
 .sns-links {
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: var(--space-md);
+  margin: 1.5rem 0;
 }
 
 .sns-links a {
   color: var(--color-main);
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--color-main);
-  border-radius: 2px;
-  font-size: 0.9rem;
+  text-decoration: none;
+  font-size: 0.85rem;
   letter-spacing: 0.05em;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--color-main);
+  transition: all 0.3s ease;
 }
 
 .sns-links a:hover {
@@ -360,118 +287,17 @@ blockquote {
 }
 
 .contact-note {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-/* ========================================
-   フッター
-   ======================================== */
-footer {
-  background-color: var(--color-main-dark);
-  color: var(--color-sand-light);
-  text-align: center;
-  padding: var(--space-lg) var(--space-md);
-  font-size: 0.85rem;
-}
-
-footer a {
-  color: var(--color-sand);
-}
-
-footer a:hover {
-  color: var(--color-white);
-}
-
-.footer-copy {
-  margin-top: var(--space-sm);
-  color: var(--color-text-muted);
   font-size: 0.8rem;
-}
-
-/* ========================================
-   画像
-   ======================================== */
-.img-container {
-  margin: var(--space-md) 0;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.img-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.img-container:hover img {
-  transform: scale(1.02);
-}
-
-/* キャプション */
-.img-caption {
-  font-size: 0.85rem;
   color: var(--color-text-muted);
-  text-align: center;
-  padding: var(--space-sm);
-  font-style: italic;
+  margin-top: 1rem;
 }
-
-/* ========================================
-   リスト
-   ======================================== */
-ul, ol {
-  padding-left: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-li {
-  margin-bottom: var(--space-xs);
-}
-
-/* カスタムリスト：点ではなく小さな四角 */
-.list-square {
-  list-style: none;
-  padding-left: 0;
-}
-
-.list-square li {
-  position: relative;
-  padding-left: var(--space-md);
-}
-
-.list-square li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-sand-dark);
-}
-
-/* ========================================
-   ユーティリティ
-   ======================================== */
-.text-center { text-align: center; }
-.text-muted { color: var(--color-text-muted); }
-.text-small { font-size: 0.85rem; }
-.text-accent { color: var(--color-main); }
-
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
 
 /* ========================================
    フェードイン アニメーション
    ======================================== */
-.fade-in {
+.container {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
   animation: fadeInUp 0.8s ease forwards;
 }
 
@@ -482,42 +308,34 @@ li {
   }
 }
 
-.fade-in-delay-1 { animation-delay: 0.2s; }
-.fade-in-delay-2 { animation-delay: 0.4s; }
-.fade-in-delay-3 { animation-delay: 0.6s; }
-
 /* ========================================
    レスポンシブ
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
   
-  header {
-    padding: var(--space-sm);
+  body {
+    padding: 1rem;
+    align-items: flex-start;
   }
   
-  nav {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  .nav {
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: 0.8rem;
   }
   
-  .nav-links {
-    gap: var(--space-sm);
-  }
-  
-  .hero {
-    min-height: 50vh;
-    padding: var(--space-lg) var(--space-sm);
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  main {
-    padding: var(--space-lg) var(--space-sm);
+  .nav a {
+    text-align: center;
   }
   
   .sns-links {
@@ -526,7 +344,8 @@ li {
   }
   
   .sns-links a {
-    width: 80%;
+    width: 100%;
+    max-width: 200px;
     text-align: center;
   }
 }
@@ -535,17 +354,21 @@ li {
    印刷用
    ======================================== */
 @media print {
-  header, footer, .contact-section {
+  body {
+    background: white;
+    padding: 0;
+  }
+  
+  .container {
+    box-shadow: none;
+    border: none;
+  }
+  
+  .container::before {
     display: none;
   }
   
-  body {
-    background: white;
-    color: black;
-  }
-  
-  a {
-    color: black;
-    text-decoration: underline;
+  .nav, .contact-section {
+    display: none;
   }
 }
