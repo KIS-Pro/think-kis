@@ -1,187 +1,551 @@
+/*
+ * KIS Homepage - Style Sheet
+ * イメージ：枯山水、問いの余韻、静かな思考
+ * メイン：藍鉄色（深い青緑）
+ * アクセント：砂色（温かみのあるベージュ）
+ */
+
 /* ========================================
-   KIS - Common Styles
+   カラーパレット
    ======================================== */
+:root {
+  /* メインカラー：藍鉄色 */
+  --color-main: #2C4A52;
+  --color-main-light: #3D5A63;
+  --color-main-dark: #1E353B;
+  
+  /* アクセント：砂色 */
+  --color-sand: #D4C5A9;
+  --color-sand-light: #E8DFD0;
+  --color-sand-dark: #B8A88C;
+  
+  /* 背景：和紙のような白 */
+  --color-bg: #FAF8F5;
+  --color-bg-alt: #F0EDE6;
+  
+  /* テキスト：墨色 */
+  --color-text: #2D2D2D;
+  --color-text-light: #5A5A5A;
+  --color-text-muted: #888888;
+  
+  /* その他 */
+  --color-border: #D0C9BC;
+  --color-white: #FFFFFF;
+  
+  /* フォント */
+  --font-main: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-accent: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  
+  /* スペーシング */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+}
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
-
-/* Reset & Base */
-* {
+/* ========================================
+   ベースリセット
+   ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #fafafa;
-  color: #111;
-  font-family: "Noto Serif JP", serif;
-  font-weight: 400;
-  line-height: 2;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Container */
-.container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 12vh 24px;
-}
-
-/* Typography */
-h1 {
-  font-size: 1.3em;
-  font-weight: 400;
-  margin-bottom: 2em;
-  color: #333;
-}
-
-h2 {
-  font-size: 0.95em;
-  font-weight: 400;
-  margin-top: 4em;
-  margin-bottom: 1.5em;
-  color: #555;
-}
-
-p {
-  margin-bottom: 2em;
-}
-
-.lead {
-  color: #333;
-}
-
-.name {
-  margin-top: 5em;
-  font-size: 0.9em;
-  color: #555;
-}
-
-.note {
-  font-size: 0.8em;
-  color: #888;
-  margin-top: 1em;
-}
-
-/* Navigation */
-.nav {
-  margin-top: 6em;
-  font-size: 0.85em;
-}
-
-.nav a {
-  color: #555;
-  text-decoration: none;
-  margin-right: 2em;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover {
-  color: #111;
-}
-
-/* KIS Mode Items */
-.mode-item {
-  margin-bottom: 1.8em;
-}
-
-.mode-name {
-  color: #333;
-}
-
-.mode-desc {
-  color: #666;
-  font-size: 0.9em;
-}
-
-/* Example Boxes */
-.example-box {
-  margin-bottom: 2.5em;
-  padding-left: 1em;
-  border-left: 2px solid #ddd;
-  transition: border-color 0.3s ease;
-}
-
-.example-box:hover {
-  border-color: #999;
-}
-
-.example-title {
-  color: #333;
-  font-size: 0.95em;
-  margin-bottom: 0.5em;
-}
-
-.example-text {
-  color: #666;
-  font-size: 0.9em;
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  min-height: 100vh;
 }
 
 /* ========================================
-   Animations
+   タイポグラフィ
    ======================================== */
+h1, h2, h3 {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-main);
+}
 
-/* Fade In on Load */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin-bottom: var(--space-sm);
+}
+
+a {
+  color: var(--color-main);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-main-light);
+}
+
+/* ========================================
+   ヘッダー・ナビゲーション
+   ======================================== */
+header {
+  background-color: var(--color-main);
+  padding: var(--space-sm) var(--space-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-accent);
+  font-size: 1.3rem;
+  color: var(--color-sand-light);
+  letter-spacing: 0.15em;
+}
+
+.logo:hover {
+  color: var(--color-white);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-sand-light);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: var(--space-xs) 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-sand);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   ヒーローセクション
+   ======================================== */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--color-main-dark) 0%,
+    var(--color-main) 50%,
+    var(--color-main-light) 100%
+  );
+  color: var(--color-sand-light);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-tagline {
+  font-family: var(--font-accent);
+  font-size: 1.2rem;
+  color: var(--color-sand);
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-description {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--color-sand-light);
+}
+
+/* ========================================
+   メインコンテンツ
+   ======================================== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+section {
+  margin-bottom: var(--space-xl);
+}
+
+/* セクション区切り：枯山水の波紋をイメージ */
+section::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-sand-dark),
+    transparent
+  );
+  margin: var(--space-lg) auto 0;
+}
+
+section:last-of-type::after {
+  display: none;
+}
+
+/* ========================================
+   カードスタイル
+   ======================================== */
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  box-shadow: 0 2px 8px rgba(44, 74, 82, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(44, 74, 82, 0.1);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  border-left: 3px solid var(--color-sand);
+  padding-left: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+/* ========================================
+   引用・強調
+   ======================================== */
+blockquote {
+  background-color: var(--color-bg-alt);
+  border-left: 3px solid var(--color-main);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+.highlight {
+  background: linear-gradient(
+    transparent 60%,
+    var(--color-sand-light) 60%
+  );
+  padding: 0 0.2em;
+}
+
+/* ========================================
+   ボタン
+   ======================================== */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-main);
+  border-radius: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-main-light);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-main);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+/* ========================================
+   SNS・連絡先セクション
+   ======================================== */
+.contact-section {
+  background-color: var(--color-bg-alt);
+  padding: var(--space-lg);
+  border-radius: 4px;
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.contact-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-md);
+}
+
+.sns-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.sns-links a {
+  color: var(--color-main);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-main);
+  border-radius: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.sns-links a:hover {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+.contact-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+footer {
+  background-color: var(--color-main-dark);
+  color: var(--color-sand-light);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--color-sand);
+}
+
+footer a:hover {
+  color: var(--color-white);
+}
+
+.footer-copy {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   画像
+   ======================================== */
+.img-container {
+  margin: var(--space-md) 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.img-container:hover img {
+  transform: scale(1.02);
+}
+
+/* キャプション */
+.img-caption {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-sm);
+  font-style: italic;
+}
+
+/* ========================================
+   リスト
+   ======================================== */
+ul, ol {
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* カスタムリスト：点ではなく小さな四角 */
+.list-square {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-square li {
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.list-square li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-sand-dark);
+}
+
+/* ========================================
+   ユーティリティ
+   ======================================== */
+.text-center { text-align: center; }
+.text-muted { color: var(--color-text-muted); }
+.text-small { font-size: 0.85rem; }
+.text-accent { color: var(--color-main); }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+/* ========================================
+   フェードイン アニメーション
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.container {
-  animation: fadeIn 0.8s ease-out;
-}
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; }
 
-/* Staggered fade for paragraphs (optional) */
-.container p,
-.container h1,
-.container h2,
-.container .name,
-.container .mode-item,
-.container .example-box {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.container > *:nth-child(1) { animation-delay: 0.1s; }
-.container > *:nth-child(2) { animation-delay: 0.15s; }
-.container > *:nth-child(3) { animation-delay: 0.2s; }
-.container > *:nth-child(4) { animation-delay: 0.25s; }
-.container > *:nth-child(5) { animation-delay: 0.3s; }
-.container > *:nth-child(6) { animation-delay: 0.35s; }
-.container > *:nth-child(7) { animation-delay: 0.4s; }
-.container > *:nth-child(8) { animation-delay: 0.45s; }
-.container > *:nth-child(9) { animation-delay: 0.5s; }
-.container > *:nth-child(10) { animation-delay: 0.55s; }
-.container > *:nth-child(11) { animation-delay: 0.6s; }
-.container > *:nth-child(12) { animation-delay: 0.65s; }
-.container > *:nth-child(13) { animation-delay: 0.7s; }
-.container > *:nth-child(14) { animation-delay: 0.75s; }
-.container > *:nth-child(15) { animation-delay: 0.8s; }
-
-/* Nav always visible */
-.container .nav {
-  opacity: 1;
-  animation: fadeIn 0.6s ease-out 0.9s forwards;
+/* ========================================
+   レスポンシブ
+   ======================================== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  header {
+    padding: var(--space-sm);
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .nav-links {
+    gap: var(--space-sm);
+  }
+  
+  .hero {
+    min-height: 50vh;
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  main {
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .sns-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sns-links a {
+    width: 80%;
+    text-align: center;
+  }
 }
 
 /* ========================================
-   Responsive
+   印刷用
    ======================================== */
-
-@media (max-width: 480px) {
-  .container {
-    padding: 8vh 20px;
+@media print {
+  header, footer, .contact-section {
+    display: none;
   }
   
-  h1 {
-    font-size: 1.2em;
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
   }
 }
