@@ -1,130 +1,114 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <title>KIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KIS - 問いを深める思考OS</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: #fafafa;
+      color: #111;
+      font-family: "Noto Serif JP", serif;
+      line-height: 2;
     }
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-      background-color: #1a1a1a;
-      color: #e0e0e0;
-      line-height: 1.9;
-      padding: 60px 20px;
-      max-width: 720px;
-      margin: 0 auto;
+    .container {
+      max-width: 640px;
+      margin: 10vh auto;
+      padding: 0 24px;
     }
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.3em;
       font-weight: 400;
-      margin-bottom: 40px;
-      color: #ffffff;
+      margin-bottom: 2em;
+      color: #333;
     }
     h2 {
-      font-size: 1.1rem;
+      font-size: 0.95em;
       font-weight: 400;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      color: #888;
-      border-left: 3px solid #555;
-      padding-left: 12px;
+      margin-top: 4em;
+      margin-bottom: 1.5em;
+      color: #555;
     }
     p {
-      margin-bottom: 1.4em;
-      font-size: 0.95rem;
+      margin-bottom: 2em;
     }
     .lead {
-      font-size: 1.05rem;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-    .mode-list {
-      margin: 20px 0 30px 0;
+      color: #333;
     }
     .mode-item {
-      margin-bottom: 16px;
-      padding-left: 1em;
+      margin-bottom: 1.8em;
     }
     .mode-name {
-      color: #a0c4ff;
-      font-weight: 500;
+      color: #333;
     }
     .mode-desc {
-      color: #999;
-      font-size: 0.9rem;
-      margin-left: 0.5em;
+      color: #666;
+      font-size: 0.9em;
     }
     .example-box {
-      background: #252525;
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 16px 0 24px 0;
+      margin-bottom: 2.5em;
+      padding-left: 1em;
+      border-left: 2px solid #ddd;
     }
     .example-title {
-      color: #7ecfff;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
+      color: #333;
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
     }
     .example-text {
-      color: #bbb;
-      font-size: 0.9rem;
+      color: #666;
+      font-size: 0.9em;
     }
     .nav {
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #333;
+      margin-top: 6em;
+      font-size: 0.85em;
     }
     .nav a {
-      color: #888;
+      color: #555;
       text-decoration: none;
-      margin-right: 20px;
-      font-size: 0.9rem;
+      margin-right: 2em;
     }
     .nav a:hover {
-      color: #fff;
+      color: #111;
     }
     .note {
-      font-size: 0.85rem;
-      color: #666;
-      margin-top: 40px;
+      font-size: 0.8em;
+      color: #888;
+      margin-top: 1em;
     }
   </style>
 </head>
 <body>
+  <div class="container">
 
-  <h1>KIS</h1>
-  
-  <p class="lead">
-    Knowledge Innovation System。<br>
-    問いを深めるための、思考の補助システムです。
-  </p>
+    <h1>KIS</h1>
+    
+    <p class="lead">
+      Knowledge Innovation System。<br>
+      問いを深めるための、思考の補助システムです。
+    </p>
 
-  <p>
-    AIは答えを返します。<br>
-    でも、良い答えは、良い問いからしか生まれません。
-  </p>
-  
-  <p>
-    KISは、あなたの「問い」を育てます。<br>
-    曖昧なモヤモヤを言葉にし、<br>
-    対立する視点を統合し、<br>
-    見落としていた前提を照らし出す。
-  </p>
-  
-  <p>
-    答えを出すのは、あなたです。<br>
-    KISは、その手前を一緒に歩きます。
-  </p>
+    <p>
+      AIは答えを返します。<br>
+      でも、良い答えは、良い問いからしか生まれません。
+    </p>
+    
+    <p>
+      KISは、あなたの「問い」を育てます。<br>
+      曖昧なモヤモヤを言葉にし、<br>
+      対立する視点を統合し、<br>
+      見落としていた前提を照らし出す。
+    </p>
+    
+    <p>
+      答えを出すのは、あなたです。<br>
+      KISは、その手前を一緒に歩きます。
+    </p>
 
-  <!-- B) 使い方 -->
-  <h2>できること</h2>
-  
-  <div class="mode-list">
+    <h2>できること</h2>
+    
     <div class="mode-item">
       <span class="mode-name">帰納モード</span><br>
       <span class="mode-desc">モヤモヤや違和感から、問いの芽を見つける</span>
@@ -141,55 +125,54 @@
       <span class="mode-name">存在生成モード</span><br>
       <span class="mode-desc">問いと回答の往復を通じて、意味を再構築する</span>
     </div>
-  </div>
-  
-  <p class="note">
-    ※ 全9種類のモード + 複数の補助モードがあります
-  </p>
+    
+    <p class="note">
+      ※ 全9種類のモード + 複数の補助モードがあります
+    </p>
 
-  <!-- C) 使用例 -->
-  <h2>こんな場面で</h2>
-  
-  <div class="example-box">
-    <div class="example-title">企画書がうまくまとまらない</div>
-    <div class="example-text">
-      何度書き直しても「これじゃない」感がある。<br>
-      → 帰納モードで、自分が本当に伝えたいことを掘り起こす
+    <h2>こんな場面で</h2>
+    
+    <div class="example-box">
+      <div class="example-title">企画書がうまくまとまらない</div>
+      <div class="example-text">
+        何度書き直しても「これじゃない」感がある。<br>
+        → 帰納モードで、自分が本当に伝えたいことを掘り起こす
+      </div>
     </div>
-  </div>
-  
-  <div class="example-box">
-    <div class="example-title">チーム内で意見が対立している</div>
-    <div class="example-text">
-      どちらも正しいように見えて、決められない。<br>
-      → 弁証モードで、両方を活かす第三の道を探す
+    
+    <div class="example-box">
+      <div class="example-title">チーム内で意見が対立している</div>
+      <div class="example-text">
+        どちらも正しいように見えて、決められない。<br>
+        → 弁証モードで、両方を活かす第三の道を探す
+      </div>
     </div>
-  </div>
-  
-  <div class="example-box">
-    <div class="example-title">転職すべきか、迷っている</div>
-    <div class="example-text">
-      条件は悪くない。でも何か引っかかる。<br>
-      → 逆照射モードで、その「引っかかり」の正体を言葉にする
+    
+    <div class="example-box">
+      <div class="example-title">転職すべきか、迷っている</div>
+      <div class="example-text">
+        条件は悪くない。でも何か引っかかる。<br>
+        → 逆照射モードで、その「引っかかり」の正体を言葉にする
+      </div>
     </div>
+
+    <h2>使い方</h2>
+    
+    <p>
+      Claude、ChatGPT、Gemini などの AI に、<br>
+      KIS のプロンプトを読み込ませるだけです。
+    </p>
+    
+    <p>
+      特別なアプリは要りません。<br>
+      いつも使っている AI が、思考のパートナーになります。
+    </p>
+
+    <div class="nav">
+      <a href="index.html">back</a>
+      <a href="about.html">about</a>
+    </div>
+
   </div>
-
-  <h2>使い方</h2>
-  
-  <p>
-    Claude、ChatGPT、Gemini などの AI に、<br>
-    KIS のプロンプトを読み込ませるだけです。
-  </p>
-  
-  <p>
-    特別なアプリは要りません。<br>
-    いつも使っている AI が、思考のパートナーになります。
-  </p>
-
-  <div class="nav">
-    <a href="index.html">トップ</a>
-    <a href="about.html">このサイトについて</a>
-  </div>
-
 </body>
 </html>
