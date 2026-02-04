@@ -50,10 +50,27 @@ html {
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
   background-color: var(--color-bg);
+  background-image: url('../images/bg-zen.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--color-text);
   line-height: 2;
   min-height: 100vh;
   padding: 3rem 2rem;
+  position: relative;
+}
+
+/* 背景を薄くするオーバーレイ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 248, 245, 0.85);
+  z-index: -1;
 }
 
 /* ========================================
