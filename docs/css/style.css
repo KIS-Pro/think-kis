@@ -50,7 +50,7 @@ html {
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
   background-color: var(--color-bg);
-  background-image: url('../images/bg-zen.png');
+  background-image: url('../image/bg-zen.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
