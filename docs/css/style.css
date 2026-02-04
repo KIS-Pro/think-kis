@@ -115,6 +115,11 @@ body::before {
 .logo img {
   max-width: 200px;
   height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.logo a:hover img {
+  opacity: 0.8;
 }
 
 /* ========================================
