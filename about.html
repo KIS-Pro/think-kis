@@ -49,6 +49,7 @@
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
       position: relative;
+      animation: fadeInUp 0.8s ease forwards;
     }
     .container::before {
       content: '';
@@ -77,6 +78,17 @@
       font-size: 0.9rem;
       color: var(--color-text-muted);
       letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .name svg { flex-shrink: 0; }
+    .profile {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      line-height: 1.8;
     }
     .nav { margin-top: 2rem; display: flex; gap: 1.5rem; }
     .nav a {
@@ -92,6 +104,10 @@
       background-color: var(--color-main);
       color: var(--color-white);
     }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @media (max-width: 640px) {
       html { font-size: 15px; }
       body { padding: 1rem; }
@@ -106,30 +122,3 @@
     <div class="logo">
       <a href="index.html"><img src="https://kis-pro.github.io/think-kis/image/logo.png" alt="未来図Lab工房 KIS"></a>
     </div>
-    <p>
-      考えることが好き、というより、<br>
-      考えてしまう、というほうが近い。
-    </p>
-    <p>
-      正しい答えを出すことよりも、<br>
-      問いが消えてしまう瞬間のほうが、<br>
-      ずっと気になる。
-    </p>
-    <p>
-      何かを説明したくて、この場所をつくったわけではない。
-    </p>
-    <p>
-      ただ、考える前に立ち止まれる場所が、<br>
-      あまりに少なくなったと感じただけだ。
-    </p>
-    <div class="name">
-      長谷川浩一郎
-    </div>
-    <div class="nav">
-      <a href="index.html">back</a>
-      <a href="kis.html">KIS</a>
-    </div>
-  </div>
-</body>
-</html>
-
