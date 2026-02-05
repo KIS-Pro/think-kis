@@ -43,7 +43,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   scroll-behavior: smooth;
 }
 
@@ -77,10 +77,10 @@ body::before {
    コンテナ
    ======================================== */
 .container {
-  max-width: 640px;
+  max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 3rem 2.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
@@ -107,8 +107,8 @@ body::before {
    ======================================== */
 .logo {
   text-align: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
 }
 
