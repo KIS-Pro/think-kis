@@ -49,6 +49,7 @@
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
       position: relative;
+      animation: fadeInUp 0.8s ease forwards;
     }
     .container::before {
       content: '';
@@ -102,14 +103,6 @@
       font-size: 1.05rem;
       color: var(--color-text-light);
       margin-bottom: 2rem;
-    }
-    .name {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--color-border);
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      letter-spacing: 0.1em;
     }
     .nav { margin-top: 2rem; display: flex; gap: 1.5rem; }
     .nav a {
@@ -215,6 +208,10 @@
       font-size: 0.8rem;
       color: var(--color-text-muted);
       margin-top: 1rem;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 640px) {
       html { font-size: 15px; }
@@ -325,10 +322,18 @@
         <a href="https://note.com/kis_project" target="_blank" rel="noopener">Note</a>
         <a href="https://www.instagram.com/mori.photo.footage/" target="_blank" rel="noopener">Instagram</a>
       </div>
-      <p class="contact-note">
-        気になったこと、DMでお気軽にどうぞ。<br>
-        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0dbd18784858882f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</a>
+      <p class="contact-note" id="email-area">
+        気になったこと、DMでお気軽にどうぞ。
       </p>
     </div>
 
-    <div cl
+    <div class="nav">
+      <a href="index.html">back</a>
+      <a href="about.html">about</a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('email-area').innerHTML += '<br>ka745' + '82@gm' + 'ail.com';
+  </script>
+</body>
+</html>
