@@ -49,7 +49,6 @@
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
       position: relative;
-      animation: fadeInUp 0.8s ease forwards;
     }
     .container::before {
       content: '';
@@ -72,7 +71,7 @@
     .logo a:hover img { opacity: 0.8; }
     .catchcopy {
       font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--color-main);
       text-align: center;
       letter-spacing: 0.1em;
@@ -81,7 +80,7 @@
       border-bottom: 1px solid var(--color-border);
       opacity: 0;
       filter: blur(8px);
-      animation: catchFadeIn 2s ease 0.8s forwards;
+      animation: catchFadeIn 2s ease 0.3s forwards;
     }
     @keyframes catchFadeIn {
       to {
@@ -111,10 +110,6 @@
     .nav a:hover {
       background-color: var(--color-main);
       color: var(--color-white);
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 640px) {
       html { font-size: 15px; }
