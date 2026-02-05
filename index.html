@@ -96,6 +96,17 @@
       font-size: 0.9rem;
       color: var(--color-text-muted);
       letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .name svg { flex-shrink: 0; }
+    .profile {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      line-height: 1.8;
     }
     .nav { margin-top: 2rem; display: flex; gap: 1.5rem; }
     .nav a {
@@ -143,8 +154,14 @@
       問いを置き去りにしていないだろうか。
     </p>
     <div class="name">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2 C16 2, 18 8, 18 10 C18 14, 14 18, 10 18 C6 18, 2 14, 2 10 C2 6, 5 2.5, 8 2" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
       長谷川浩一郎
     </div>
+    <p class="profile">
+      未来図Lab工房 主宰。問いと思考の仕組みに関心を持ち、AIを活用した思考支援システム「KIS」を開発。
+    </p>
     <div class="nav">
       <a href="about.html">about</a>
       <a href="kis.html">KIS</a>
@@ -152,5 +169,3 @@
   </div>
 </body>
 </html>
-
-
