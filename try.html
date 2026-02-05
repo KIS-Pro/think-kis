@@ -1,1 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="https://kis-pro.github.io/think-kis/image/favicon.ico">
+  <link rel="apple-touch-icon" href="https://kis-pro.github.io/think-kis/image/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>KIS - 問いを深める思考OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knowledge Innovation System。問いを深めるための、思考の補助システムです。">
+  <!-- OGP -->
+  <meta property="og:title" content="KIS - 問いを深める思考OS">
+  <meta property="og:description" content="問いを深めるための、思考の補助システム。答えを考える前に、立ち止まってみよう。">
+  <meta property="og:image" content="https://kis-pro.github.io/think-kis/image/ogp.png">
+  <meta property="og:url" content="https://kis-pro.github.io/think-kis/kis.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="未来図Lab工房 KIS">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KIS - 問いを深める思考OS">
+  <meta name="twitter:description" content="問いを深めるための、思考の補助システム。答えを考える前に、立ち止まってみよう。">
+  <meta name="twitter:image" content="https://kis-pro.github.io/think-kis/image/ogp.png">
+  <style>
+    :root {
+      --color-main: #2C4A52;
+      --color-sand: #D4C5A9;
+      --color-bg: #FAF8F5;
+      --color-bg-alt: #F0EDE6;
+      --color-text: #2D2D2D;
+      --color-text-light: #5A5A5A;
+      --color-text-muted: #888888;
+      --color-border: #D0C9BC;
+      --color-white: #FFFFFF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 17px; scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+      background-color: var(--color-bg);
+      background-image: url('https://kis-pro.github.io/think-kis/image/bg-zen.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--color-text);
+      line-height: 2;
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(250, 248, 245, 0.85);
+      z-index: -1;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
+      position: relative;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-main) 0%, var(--color-sand) 100%);
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+    .logo img {
+      max-width: 280px;
+      height: auto;
+      margin: -2rem auto;
+    }
+    p { margin-bottom: 1.8rem; letter-spacing: 0.02em; }
+    h1 {
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--color-main);
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; left: 0;
+      width: 40px; height: 2px;
+      background-color: var(--color-sand);
+    }
+    h2 {
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-main);
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--color-sand);
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+    }
 
+    /* ── 署名 ── */
+    .name {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .name svg {
+      flex-shrink: 0;
+    }
+    .profile {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      line-height: 1.8;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      letter-spacing: 0.05em;
+    }
+
+    .nav { margin-top: 2rem; display: flex; gap: 1.5rem; }
+    .nav a {
+      color: var(--color-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-main);
+      transition: all 0.3s ease;
+    }
+    .nav a:hover {
+      background-color: var(--color-main);
+      color: var(--color-white);
+    }
+
+    /* ── モード（アイコン付き） ── */
+    .mode-item {
+      margin-bottom: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      background-color: var(--color-bg);
+      border-left: 3px solid var(--color-sand);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .mode-item:hover {
+      background-color: var(--color-bg-alt);
+      border-left-color: var(--color-main);
+    }
+    .mode-icon {
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .mode-content {
+      flex: 1;
+    }
+    .mode-name {
+      font-weight: 600;
+      color: var(--color-main);
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+    .mode-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    /* ── セクション区切り ── */
+    .section-divider {
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+
+    .example-box {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .example-box:hover {
+      box-shadow: 0 4px 12px rgba(44, 74, 82, 0.08);
+    }
+    .example-title {
+      font-weight: 600;
+      color: var(--color-main);
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed var(--color-sand);
+    }
+    .example-text {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--color-border);
+    }
+    .contact-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-color: var(--color-bg-alt);
+      text-align: center;
+    }
+    .contact-section h2 {
+      border-left: none;
+      padding-left: 0;
+      text-align: center;
+      margin-top: 0;
+    }
+    .sns-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .sns-links a {
+      color: var(--color-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--color-main);
+      transition: all 0.3s ease;
+    }
+    .sns-links a:hover {
+      background-color: var(--color-main);
+      color: var(--color-white);
+    }
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      html { font-size: 15px; }
+      body { padding: 1rem; }
+      .container { padding: 2rem 1.5rem; }
+      h1 { font-size: 1.6rem; }
+      .nav { flex-direction: column; gap: 0.8rem; }
+      .nav a { text-align: center; }
+      .sns-links { flex-direction: column; align-items: center; }
+      .sns-links a { width: 100%; max-width: 200px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <a href="index.html"><img src="https://kis-pro.github.io/think-kis/image/logo.png" alt="未来図Lab工房 KIS"></a>
+    </div>
+    
+    <h1>KIS</h1>
+    
+    <p class="lead">
+      Knowledge Innovation System。<br>
+      問いを深めるための、思考の補助システムです。
+    </p>
+    <p>
+      AIは答えを返します。<br>
+      でも、良い答えは、良い問いからしか生まれません。
+    </p>
+    
+    <p>
+      KISは、あなたの「問い」を育てます。<br>
+      曖昧なモヤモヤを言葉にし、<br>
+      対立する視点を統合し、<br>
+      見落としていた前提を照らし出す。
+    </p>
+    
+    <p>
+      答えを出すのは、あなたです。<br>
+      KISは、その手前を一緒に歩きます。
+    </p>
+
+    <h2>できること</h2>
+    
+    <!-- 帰納モード：芽のアイコン -->
+    <div class="mode-item">
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 24 V14" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 14 C14 10, 8 6, 6 8" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M14 14 C14 9, 20 5, 22 7" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M14 17 C14 13, 10 10, 8 12" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">帰納モード</span><br>
+        <span class="mode-desc">モヤモヤや違和感から、問いの芽を見つける</span>
+      </div>
+    </div>
+
+    <!-- 弁証モード：交差する二本線 -->
+    <div class="mode-item">
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20 C10 20, 12 8, 24 8" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M4 8 C10 8, 12 20, 24 20" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="14" r="2" fill="#2C4A52" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">弁証モード</span><br>
+        <span class="mode-desc">対立する意見を統合し、新しい視点を生む</span>
+      </div>
+    </div>
+
+    <!-- 逆照射モード：折り返す矢印 -->
+    <div class="mode-item">
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 14 C6 8, 14 4, 22 8 C26 10, 26 18, 18 20 L10 20" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M13 16 L10 20 L13 24" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">逆照射モード</span><br>
+        <span class="mode-desc">「答え」の背後にある、隠れた問いを逆探査する</span>
+      </div>
+    </div>
+
+    <!-- 存在生成モード：循環・∞ -->
+    <div class="mode-item">
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 14 C14 8, 6 6, 4 10 C2 14, 6 18, 14 14 C22 10, 26 14, 24 18 C22 22, 14 20, 14 14Z" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#D4C5A9"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">存在生成モード</span><br>
+        <span class="mode-desc">問いと回答の往復を通じて、意味を再構築する</span>
+      </div>
+    </div>
+    
+    <p class="note">
+      ※ 全9種類のモード + 複数の補助モードがあります
+    </p>
+
+    <!-- セクション区切り：砂紋の波線 -->
+    <div class="section-divider">
+      <svg width="95%" height="20" viewBox="0 0 500 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 10 C10 4, 20 4, 30 10 C40 16, 50 16, 60 10 C70 4, 80 4, 90 10 C100 16, 110 16, 120 10 C130 4, 140 4, 150 10 C160 16, 170 16, 180 10 C190 4, 200 4, 210 10 C220 16, 230 16, 240 10 C250 4, 260 4, 270 10 C280 16, 290 16, 300 10 C310 4, 320 4, 330 10 C340 16, 350 16, 360 10 C370 4, 380 4, 390 10 C400 16, 410 16, 420 10 C430 4, 440 4, 450 10 C460 16, 470 16, 480 10 C490 4, 500 4, 500 10" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M10 14 C20 8, 30 8, 40 14 C50 20, 60 20, 70 14 C80 8, 90 8, 100 14 C110 20, 120 20, 130 14 C140 8, 150 8, 160 14 C170 20, 180 20, 190 14 C200 8, 210 8, 220 14 C230 20, 240 20, 250 14 C260 8, 270 8, 280 14 C290 20, 300 20, 310 14 C320 8, 330 8, 340 14 C350 20, 360 20, 370 14 C380 8, 390 8, 400 14 C410 20, 420 20, 430 14 C440 8, 450 8, 460 14 C470 20, 480 20, 490 14" stroke="#2C4A52" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <h2>こんな場面で</h2>
+    
+    <div class="example-box">
+      <div class="example-title">企画書がうまくまとまらない</div>
+      <div class="example-text">
+        何度書き直しても「これじゃない」感がある。<br>
+        → 帰納モードで、自分が本当に伝えたいことを掘り起こす
+      </div>
+    </div>
+    
+    <div class="example-box">
+      <div class="example-title">チーム内で意見が対立している</div>
+      <div class="example-text">
+        どちらも正しいように見えて、決められない。<br>
+        → 弁証モードで、両方を活かす第三の道を探す
+      </div>
+    </div>
+    
+    <div class="example-box">
+      <div class="example-title">転職すべきか、迷っている</div>
+      <div class="example-text">
+        条件は悪くない。でも何か引っかかる。<br>
+        → 逆照射モードで、その「引っかかり」の正体を言葉にする
+      </div>
+    </div>
+
+    <!-- セクション区切り：砂紋 -->
+    <div class="section-divider">
+      <svg width="95%" height="20" viewBox="0 0 500 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 10 C10 4, 20 4, 30 10 C40 16, 50 16, 60 10 C70 4, 80 4, 90 10 C100 16, 110 16, 120 10 C130 4, 140 4, 150 10 C160 16, 170 16, 180 10 C190 4, 200 4, 210 10 C220 16, 230 16, 240 10 C250 4, 260 4, 270 10 C280 16, 290 16, 300 10 C310 4, 320 4, 330 10 C340 16, 350 16, 360 10 C370 4, 380 4, 390 10 C400 16, 410 16, 420 10 C430 4, 440 4, 450 10 C460 16, 470 16, 480 10 C490 4, 500 4, 500 10" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M10 14 C20 8, 30 8, 40 14 C50 20, 60 20, 70 14 C80 8, 90 8, 100 14 C110 20, 120 20, 130 14 C140 8, 150 8, 160 14 C170 20, 180 20, 190 14 C200 8, 210 8, 220 14 C230 20, 240 20, 250 14 C260 8, 270 8, 280 14 C290 20, 300 20, 310 14 C320 8, 330 8, 340 14 C350 20, 360 20, 370 14 C380 8, 390 8, 400 14 C410 20, 420 20, 430 14 C440 8, 450 8, 460 14 C470 20, 480 20, 490 14" stroke="#2C4A52" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <h2>使い方</h2>
+    
+    <p>
+      Claude、ChatGPT、Gemini などの AI に、<br>
+      KIS のプレプロンプトを読み込ませるだけです。
+    </p>
+    
+    <p>
+      特別なアプリは要りません。<br>
+      いつも使っている AI が、思考のパートナーになります。
+    </p>
+
+    <div class="contact-section">
+      <h2>つながる</h2>
+      <div class="sns-links">
+        <a href="https://x.com/R20bV" target="_blank" rel="noopener">X</a>
+        <a href="https://note.com/kis_project" target="_blank" rel="noopener">Note</a>
+        <a href="https://www.instagram.com/mori.photo.footage/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="contact-note" id="email-area">
+        気になったこと、DMでお気軽にどうぞ。
+      </p>
+    </div>
+
+    <!-- 署名：円相アイコン付き -->
+    <div class="name">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2 C16 2, 18 8, 18 10 C18 14, 14 18, 10 18 C6 18, 2 14, 2 10 C2 6, 5 2.5, 8 2" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      長谷川浩一郎
+    </div>
+    <p class="profile">
+      未来図Lab工房 主宰。問いと思考の仕組みに関心を持ち、AIを活用した思考支援システム「KIS」を開発。
+    </p>
+
+    <div class="nav">
+      <a href="index.html">back</a>
+      <a href="about.html">about</a>
+      <a href="try.html">try</a>
+    </div>
+    <div class="footer">© 2025 未来図Lab工房</div>
+  </div>
+  <script>
+    document.getElementById('email-area').innerHTML += '<br>ka745' + '82@gm' + 'ail.c
