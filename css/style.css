@@ -85,6 +85,7 @@ body::before {
   border: 1px solid var(--color-border);
   box-shadow: 0 4px 20px rgba(44, 74, 82, 0.06);
   position: relative;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 /* 上部の装飾ライン */
@@ -107,15 +108,15 @@ body::before {
    ======================================== */
 .logo {
   text-align: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .logo img {
-  max-width: 300px;
+  max-width: 280px;
   height: auto;
   transition: opacity 0.3s ease;
+  margin: -2rem auto;
 }
 
 .logo a:hover img {
@@ -127,7 +128,7 @@ body::before {
    ======================================== */
 .catchcopy {
   font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   color: var(--color-main);
   text-align: center;
   letter-spacing: 0.1em;
@@ -353,13 +354,11 @@ h2 {
 /* ========================================
    フェードイン アニメーション
    ======================================== */
-.container {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
