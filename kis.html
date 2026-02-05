@@ -66,10 +66,8 @@
     .logo img {
       max-width: 280px;
       height: auto;
-      transition: opacity 0.3s ease;
       margin: -2rem auto;
     }
-    .logo a:hover img { opacity: 0.8; }
     p { margin-bottom: 1.8rem; letter-spacing: 0.02em; }
     h1 {
       font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
@@ -104,6 +102,30 @@
       color: var(--color-text-light);
       margin-bottom: 2rem;
     }
+
+    /* ── 署名 ── */
+    .name {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .name svg {
+      flex-shrink: 0;
+    }
+    .profile {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      line-height: 1.8;
+    }
+
     .nav { margin-top: 2rem; display: flex; gap: 1.5rem; }
     .nav a {
       color: var(--color-main);
@@ -118,16 +140,28 @@
       background-color: var(--color-main);
       color: var(--color-white);
     }
+
+    /* ── モード（アイコン付き） ── */
     .mode-item {
       margin-bottom: 1.5rem;
       padding: 1.2rem 1.5rem;
       background-color: var(--color-bg);
       border-left: 3px solid var(--color-sand);
       transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
     .mode-item:hover {
       background-color: var(--color-bg-alt);
       border-left-color: var(--color-main);
+    }
+    .mode-icon {
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .mode-content {
+      flex: 1;
     }
     .mode-name {
       font-weight: 600;
@@ -141,6 +175,13 @@
       display: inline-block;
       margin-top: 0.3rem;
     }
+
+    /* ── セクション区切り ── */
+    .section-divider {
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+
     .example-box {
       margin-bottom: 1.5rem;
       padding: 1.5rem;
@@ -256,26 +297,76 @@
 
     <h2>できること</h2>
     
+    <!-- 帰納モード：芽のアイコン -->
     <div class="mode-item">
-      <span class="mode-name">帰納モード</span><br>
-      <span class="mode-desc">モヤモヤや違和感から、問いの芽を見つける</span>
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 24 V14" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 14 C14 10, 8 6, 6 8" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M14 14 C14 9, 20 5, 22 7" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M14 17 C14 13, 10 10, 8 12" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">帰納モード</span><br>
+        <span class="mode-desc">モヤモヤや違和感から、問いの芽を見つける</span>
+      </div>
     </div>
+
+    <!-- 弁証モード：交差する二本線 -->
     <div class="mode-item">
-      <span class="mode-name">弁証モード</span><br>
-      <span class="mode-desc">対立する意見を統合し、新しい視点を生む</span>
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20 C10 20, 12 8, 24 8" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M4 8 C10 8, 12 20, 24 20" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="14" r="2" fill="#2C4A52" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">弁証モード</span><br>
+        <span class="mode-desc">対立する意見を統合し、新しい視点を生む</span>
+      </div>
     </div>
+
+    <!-- 逆照射モード：折り返す矢印 -->
     <div class="mode-item">
-      <span class="mode-name">逆照射モード</span><br>
-      <span class="mode-desc">「答え」の背後にある、隠れた問いを逆探査する</span>
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 14 C6 8, 14 4, 22 8 C26 10, 26 18, 18 20 L10 20" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M13 16 L10 20 L13 24" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">逆照射モード</span><br>
+        <span class="mode-desc">「答え」の背後にある、隠れた問いを逆探査する</span>
+      </div>
     </div>
+
+    <!-- 存在生成モード：循環・∞ -->
     <div class="mode-item">
-      <span class="mode-name">存在生成モード</span><br>
-      <span class="mode-desc">問いと回答の往復を通じて、意味を再構築する</span>
+      <div class="mode-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 14 C14 8, 6 6, 4 10 C2 14, 6 18, 14 14 C22 10, 26 14, 24 18 C22 22, 14 20, 14 14Z" stroke="#2C4A52" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="14" r="1.5" fill="#D4C5A9"/>
+        </svg>
+      </div>
+      <div class="mode-content">
+        <span class="mode-name">存在生成モード</span><br>
+        <span class="mode-desc">問いと回答の往復を通じて、意味を再構築する</span>
+      </div>
     </div>
     
     <p class="note">
       ※ 全9種類のモード + 複数の補助モードがあります
     </p>
+
+    <!-- セクション区切り：砂紋の波線 -->
+    <div class="section-divider">
+      <svg width="95%" height="20" viewBox="0 0 500 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 10 C10 4, 20 4, 30 10 C40 16, 50 16, 60 10 C70 4, 80 4, 90 10 C100 16, 110 16, 120 10 C130 4, 140 4, 150 10 C160 16, 170 16, 180 10 C190 4, 200 4, 210 10 C220 16, 230 16, 240 10 C250 4, 260 4, 270 10 C280 16, 290 16, 300 10 C310 4, 320 4, 330 10 C340 16, 350 16, 360 10 C370 4, 380 4, 390 10 C400 16, 410 16, 420 10 C430 4, 440 4, 450 10 C460 16, 470 16, 480 10 C490 4, 500 4, 500 10" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M10 14 C20 8, 30 8, 40 14 C50 20, 60 20, 70 14 C80 8, 90 8, 100 14 C110 20, 120 20, 130 14 C140 8, 150 8, 160 14 C170 20, 180 20, 190 14 C200 8, 210 8, 220 14 C230 20, 240 20, 250 14 C260 8, 270 8, 280 14 C290 20, 300 20, 310 14 C320 8, 330 8, 340 14 C350 20, 360 20, 370 14 C380 8, 390 8, 400 14 C410 20, 420 20, 430 14 C440 8, 450 8, 460 14 C470 20, 480 20, 490 14" stroke="#2C4A52" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
 
     <h2>こんな場面で</h2>
     
@@ -303,6 +394,14 @@
       </div>
     </div>
 
+    <!-- セクション区切り：砂紋 -->
+    <div class="section-divider">
+      <svg width="95%" height="20" viewBox="0 0 500 20" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 10 C10 4, 20 4, 30 10 C40 16, 50 16, 60 10 C70 4, 80 4, 90 10 C100 16, 110 16, 120 10 C130 4, 140 4, 150 10 C160 16, 170 16, 180 10 C190 4, 200 4, 210 10 C220 16, 230 16, 240 10 C250 4, 260 4, 270 10 C280 16, 290 16, 300 10 C310 4, 320 4, 330 10 C340 16, 350 16, 360 10 C370 4, 380 4, 390 10 C400 16, 410 16, 420 10 C430 4, 440 4, 450 10 C460 16, 470 16, 480 10 C490 4, 500 4, 500 10" stroke="#D4C5A9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M10 14 C20 8, 30 8, 40 14 C50 20, 60 20, 70 14 C80 8, 90 8, 100 14 C110 20, 120 20, 130 14 C140 8, 150 8, 160 14 C170 20, 180 20, 190 14 C200 8, 210 8, 220 14 C230 20, 240 20, 250 14 C260 8, 270 8, 280 14 C290 20, 300 20, 310 14 C320 8, 330 8, 340 14 C350 20, 360 20, 370 14 C380 8, 390 8, 400 14 C410 20, 420 20, 430 14 C440 8, 450 8, 460 14 C470 20, 480 20, 490 14" stroke="#2C4A52" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
     <h2>使い方</h2>
     
     <p>
@@ -326,6 +425,17 @@
         気になったこと、DMでお気軽にどうぞ。
       </p>
     </div>
+
+    <!-- 署名：円相アイコン付き -->
+    <div class="name">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2 C16 2, 18 8, 18 10 C18 14, 14 18, 10 18 C6 18, 2 14, 2 10 C2 6, 5 2.5, 8 2" stroke="#D4C5A9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      長谷川浩一郎
+    </div>
+    <p class="profile">
+      未来図Lab工房 主宰。問いと思考の仕組みに関心を持ち、AIを活用した思考支援システム「KIS」を開発。
+    </p>
 
     <div class="nav">
       <a href="index.html">back</a>
