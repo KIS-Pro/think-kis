@@ -1,41 +1,23 @@
 /*
  * KIS Homepage - Style Sheet
- * イメージ：枯山水、問いの余韻、静かな思考
- * メイン：藍鉄色（深い青緑）
- * アクセント：砂色（温かみのあるベージュ）
  */
 
-/* ========================================
-   カラーパレット
-   ======================================== */
 :root {
-  /* メインカラー：藍鉄色 */
   --color-main: #2C4A52;
   --color-main-light: #3D5A63;
   --color-main-dark: #1E353B;
-  
-  /* アクセント：砂色 */
   --color-sand: #D4C5A9;
   --color-sand-light: #E8DFD0;
   --color-sand-dark: #B8A88C;
-  
-  /* 背景：和紙のような白 */
   --color-bg: #FAF8F5;
   --color-bg-alt: #F0EDE6;
-  
-  /* テキスト：墨色 */
   --color-text: #2D2D2D;
   --color-text-light: #5A5A5A;
   --color-text-muted: #888888;
-  
-  /* その他 */
   --color-border: #D0C9BC;
   --color-white: #FFFFFF;
 }
 
-/* ========================================
-   ベース
-   ======================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -50,7 +32,7 @@ html {
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
   background-color: var(--color-bg);
-  background-image: url('../画像/bg-zen.jpg');
+  background-image: url('../image/bg-zen.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -61,7 +43,6 @@ body {
   position: relative;
 }
 
-/* 背景を薄くするオーバーレイ */
 body::before {
   content: '';
   position: fixed;
@@ -73,9 +54,6 @@ body::before {
   z-index: -1;
 }
 
-/* ========================================
-   コンテナ
-   ======================================== */
 .container {
   max-width: 720px;
   width: 100%;
@@ -88,7 +66,6 @@ body::before {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* 上部の装飾ライン */
 .container::before {
   content: '';
   position: absolute;
@@ -96,16 +73,9 @@ body::before {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--color-main) 0%,
-    var(--color-sand) 100%
-  );
+  background: linear-gradient(90deg, var(--color-main) 0%, var(--color-sand) 100%);
 }
 
-/* ========================================
-   ロゴ
-   ======================================== */
 .logo {
   text-align: center;
   margin-bottom: 1rem;
@@ -123,9 +93,6 @@ body::before {
   opacity: 0.8;
 }
 
-/* ========================================
-   キャッチコピー
-   ======================================== */
 .catchcopy {
   font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
   font-size: 1.3rem;
@@ -137,9 +104,6 @@ body::before {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* ========================================
-   タイポグラフィ
-   ======================================== */
 p {
   margin-bottom: 1.8rem;
   letter-spacing: 0.02em;
@@ -156,7 +120,6 @@ h1 {
   display: inline-block;
 }
 
-/* h1の下に砂色のアクセント */
 h1::after {
   content: '';
   position: absolute;
@@ -179,18 +142,12 @@ h2 {
   border-left: 2px solid var(--color-sand);
 }
 
-/* ========================================
-   リード文
-   ======================================== */
 .lead {
   font-size: 1.05rem;
   color: var(--color-text-light);
   margin-bottom: 2rem;
 }
 
-/* ========================================
-   名前（署名）
-   ======================================== */
 .name {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -200,9 +157,6 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-/* ========================================
-   ナビゲーション
-   ======================================== */
 .nav {
   margin-top: 2rem;
   display: flex;
@@ -224,9 +178,6 @@ h2 {
   color: var(--color-white);
 }
 
-/* ========================================
-   モード一覧（kis.html）
-   ======================================== */
 .mode-item {
   margin-bottom: 1.5rem;
   padding: 1.2rem 1.5rem;
@@ -254,9 +205,6 @@ h2 {
   margin-top: 0.3rem;
 }
 
-/* ========================================
-   使用例ボックス（kis.html）
-   ======================================== */
 .example-box {
   margin-bottom: 1.5rem;
   padding: 1.5rem;
@@ -285,9 +233,6 @@ h2 {
   line-height: 1.9;
 }
 
-/* ========================================
-   注釈
-   ======================================== */
 .note {
   font-size: 0.85rem;
   color: var(--color-text-muted);
@@ -296,9 +241,6 @@ h2 {
   border-left: 2px solid var(--color-border);
 }
 
-/* ========================================
-   SNS・連絡先セクション（kis.html用）
-   ======================================== */
 .contact-section {
   margin-top: 3rem;
   padding: 2rem;
@@ -351,9 +293,6 @@ h2 {
   text-decoration: underline;
 }
 
-/* ========================================
-   フェードイン アニメーション
-   ======================================== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -365,66 +304,20 @@ h2 {
   }
 }
 
-/* ========================================
-   レスポンシブ
-   ======================================== */
 @media (max-width: 640px) {
-  html {
-    font-size: 15px;
-  }
-  
-  body {
-    padding: 1rem;
-  }
-  
-  .container {
-    padding: 2rem 1.5rem;
-  }
-  
-  h1 {
-    font-size: 1.6rem;
-  }
-  
-  .nav {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .nav a {
-    text-align: center;
-  }
-  
-  .sns-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .sns-links a {
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
-  }
+  html { font-size: 15px; }
+  body { padding: 1rem; }
+  .container { padding: 2rem 1.5rem; }
+  h1 { font-size: 1.6rem; }
+  .nav { flex-direction: column; gap: 0.8rem; }
+  .nav a { text-align: center; }
+  .sns-links { flex-direction: column; align-items: center; }
+  .sns-links a { width: 100%; max-width: 200px; text-align: center; }
 }
 
-/* ========================================
-   印刷用
-   ======================================== */
 @media print {
-  body {
-    background: white;
-    padding: 0;
-  }
-  
-  .container {
-    box-shadow: none;
-    border: none;
-  }
-  
-  .container::before {
-    display: none;
-  }
-  
-  .nav, .contact-section {
-    display: none;
-  }
+  body { background: white; padding: 0; }
+  .container { box-shadow: none; border: none; }
+  .container::before { display: none; }
+  .nav, .contact-section { display: none; }
 }
