@@ -1,0 +1,14 @@
+{
+  "name": "kis-outbox-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KIS-ADR-003 (Rev.1) Transactional Outbox worker: SQL(Neon) -> GraphDB(Neo4j Aura) sync",
+  "scripts": {
+    "sync": "node scripts/outbox-worker.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.0",
+    "neo4j-driver": "^5.27.0"
+  }
+}
