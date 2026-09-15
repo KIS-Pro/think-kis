@@ -1,6 +1,8 @@
 // ============================================================
 // KIS Outbox Worker
 // KIS-ADR-003 (Rev.1, 2026-09-10) 準拠
+// KIS-ADR-004 (2026-09-15) 反映：kis_solution_selections の
+//   evaluation_reason 列を廃止、selection_reason に一本化
 // 未来図Lab工房／長谷川浩一郎
 //
 // kis_sync_outbox の pending 行をポーリングし、Neo4j Aura へ
@@ -108,13 +110,14 @@ function buildCypher(row) {
       };
 
     case 'kis_solution_selections':
+      // KIS-ADR-004: evaluation_reason は selection_reason と機能重複のため廃止。
+      // selection_reason に一本化する。
       return {
         query: `
           MERGE (selected:CognitiveState {id: $selected_state_id})
           MERGE (candidate:CognitiveState {id: $candidate_state_id})
           MERGE (selected)-[r:CHOSEN_FROM {selection_id: $id}]->(candidate)
           SET r.selection_reason = $selection_reason,
-              r.evaluation_reason = $evaluation_reason,
               r.created_at = datetime($created_at)
         `,
         params: p,
@@ -220,3 +223,4 @@ main().catch(err => {
   console.error('outboxワーカー致命的エラー:', err);
   process.exit(1);
 });
+
