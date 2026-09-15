@@ -208,6 +208,14 @@ async function main() {
     await pgClient.query('COMMIT');
     console.log(`完了: synced=${synced} retried=${retried} failed=${deadFailed} total=${rows.length}`);
 
+    // KIS-ADR-006 (2026-09-15): 最終失敗が1件でもあればジョブを失敗扱いにし、
+    // GitHub Actions標準のメール通知（失敗したワークフローの実行者への通知）を
+    // 発火させる。新規サービス・シークレットを増やさない方針のため。
+    if (deadFailed > 0) {
+      console.error(`△要確認: ${deadFailed}件が最終的にstatus='failed'になりました。Neonのkis_sync_outboxを確認してください。`);
+      process.exitCode = 1;
+    }
+
   } catch (err) {
     await pgClient.query('ROLLBACK').catch(() => {});
     throw err;
@@ -223,4 +231,3 @@ main().catch(err => {
   console.error('outboxワーカー致命的エラー:', err);
   process.exit(1);
 });
-
